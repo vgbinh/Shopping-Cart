@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CaseFinity Product Page</title>
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      background-color: #f7f5ee;
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+    select, button {
+      margin-top: 6px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛒 CaseFinity Products</h1>
+
+  <div class="product">
+    <h3>Beige CaseFinity Original</h3>
+    <p>150,000 VND</p>
+    <label>Select iPhone Size:
+      <select id="size1">
+        <option>iPhone 14</option>
+        <option>iPhone 14 Pro</option>
+        <option>iPhone 15</option>
+        <option>iPhone 15 Pro</option>
+        <option>iPhone 16</option>
+        <option>iPhone 16 Pro</option>
+      </select>
+    </label>
+    <button onclick="addToCart('Beige CaseFinity Original', 150000, document.getElementById('size1').value)">Add to Cart</button>
+  </div>
+
+  <a href="cart.html">🧺 Go to Cart</a>
+
+  <script>
+    function addToCart(name, price, size) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price, size });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(name + " (" + size + ") added to cart!");
+    }
+  </script>
+</body>
+</html>
